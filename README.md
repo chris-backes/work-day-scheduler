@@ -24,6 +24,12 @@ WHEN I refresh the page
 THEN the saved events persist
 ```
 
+## Description
+
+The web app is dynamically created from JavaScript, with some help from JQuery and, in the case of the time features, moment.js.
+
+The tasks can be written in a center textarea element of the HTML, and on the right there is a save button, which calls a JQuery funciton which stores the content in localstorage
+
 Grading Requirements
 This challenge is graded based on the following criteria:
 

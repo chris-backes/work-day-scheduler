@@ -1,18 +1,8 @@
 let schedulerBoxEl = $(".container");
-let dateToday = new Date();
-let currentHour = new Date().getHours();
+let currentHour = moment().hour();
 
 function addDate() {
-  dateToday = dateToday.toString().split(" ");
-  $("#currentDay").text(
-    dateToday[0] +
-      "., " +
-      dateToday[1] +
-      ". " +
-      dateToday[2] +
-      ", " +
-      dateToday[3]
-  );
+  $("#currentDay").text(moment().format("LL"));
 }
 
 function addCalendar() {
@@ -53,15 +43,14 @@ function loadTasks() {
   for (let i = 9; i <= 17; i++) {
     if (i <= 12 && localStorage.getItem(i) != null) {
       let storedTask = localStorage.getItem(i);
-      console.log(storedTask);
       $("div[data-hour=" + i + "]")
         .children("textarea")
         .text(storedTask);
-    } else if (i > 12 && localStorage.getItem(i) != null) {
+    } else if (i > 12 && localStorage.getItem(i - 12) != null) {
       let j = i - 12;
-      let storedTask = localStorage.getItem(j).value;
-      $("div[data-hour=" + j)
-        .child("<textarea>")
+      let storedTask = localStorage.getItem(j);
+      $("div[data-hour=" + j + "]")
+        .children("textarea")
         .text(storedTask);
     }
   }
