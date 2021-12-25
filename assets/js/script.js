@@ -1,10 +1,11 @@
 let schedulerBoxEl = $(".container");
 let currentHour = moment().hour();
 
+//adds date to top of page
 function addDate() {
   $("#currentDay").text(moment().format("LL"));
 }
-
+//adds the rows, finlls in text content and styles
 function addCalendar() {
   for (let i = 9; i <= 17; i++) {
     let timeRowEl = $("<div>").addClass("row time-block");
@@ -28,7 +29,7 @@ function addCalendar() {
     timeRowEl.append(timeBoxEl, scheduleEventEl, buttonEl);
   }
 }
-
+//styles rows relative to current hour. Uses momentJS to get the current hours
 function colorCoding(hour, textArea) {
   if (hour < currentHour) {
     textArea.addClass("past");
@@ -38,7 +39,7 @@ function colorCoding(hour, textArea) {
     textArea.addClass("future");
   }
 }
-
+//pulls the info from local sotrage and places them in the relevant textarea
 function loadTasks() {
   for (let i = 9; i <= 17; i++) {
     if (i <= 12 && localStorage.getItem(i) != null) {
@@ -59,6 +60,7 @@ function loadTasks() {
 addDate();
 addCalendar();
 
+// needs to appear after the addCalendar function runs, attaches a event listener to the save button and saves to local storage.
 $(".saveBtn").click(function () {
   let appointment = $(this).siblings("textarea").val();
   let hour = $(this).parent().attr("data-hour");

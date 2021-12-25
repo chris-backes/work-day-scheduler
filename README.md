@@ -1,4 +1,20 @@
-# Work Day Scheduler Starter Code
+# Work Day Scheduler
+
+Work Day Schechuler is a web app which stores daily tasks and presents them on the web page, organized by the hour in which they occur
+
+## Website
+
+https://chris-backes.github.io/work-day-scheduler/
+
+## Screenshot
+
+![Code Quiz Screenshot](./assets/images/screenshot.png)
+
+## Gif
+
+<p align="center">
+<img alt="gif of webpage" src="./assets/images/work-day-scheduler.gif" />
+</p>
 
 ## User Story
 ```
@@ -26,40 +42,10 @@ THEN the saved events persist
 
 ## Description
 
-The web app is dynamically created from JavaScript, with some help from JQuery and, in the case of the time features, moment.js.
+The web app is dynamically created from JavaScript, with some help from JQuery and, in the case of the time features, moment.js. It is styled with bootstrap, a font library, and two icon libraries (as well as a native style sheet).
 
-The tasks can be written in a center textarea element of the HTML, and on the right there is a save button, which calls a JQuery funciton which stores the content in localstorage
+The tasks can be written in a center textarea element of the HTML, and on the right there is a save button, which calls a JQuery function that stores the content in local storage.
 
-Grading Requirements
-This challenge is graded based on the following criteria:
+The HTML body contains an onload attribute, which calls the loadTasks function, pulling the content from local storage and displaying it on the web page.
 
-Technical Acceptance Criteria: 40%
-Satisfies all of the above acceptance criteria plus the following:
-
-Uses the Moment.js library to work with date and time
-Deployment: 32%
-Application deployed at live URL
-
-Application loads with no errors
-
-Application GitHub URL submitted
-
-GitHub repo contains application code
-
-Application Quality: 15%
-Application user experience is intuitive and easy to navigate
-
-Application user interface style is clean and polished
-
-Application resembles the mock-up functionality provided in the Challenge instructions
-
-Repository Quality: 13%
-Repository has a unique name
-
-Repository follows best practices for file structure and naming conventions
-
-Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-Repository contains multiple descriptive commit messages
-
-Repository contains quality README file with description, screenshot, and link to deployed application
+There is another script which executes during the course of dynmically creating the content, which styles the hours according to the hours that have passed, the present hour, and the future hours of the day.
